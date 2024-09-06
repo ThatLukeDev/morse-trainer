@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dp23jbsoclb7f"]
+[gd_scene load_steps=3 format=3 uid="uid://dp23jbsoclb7f"]
+
+[ext_resource type="Script" path="res://encode.gd" id="1_3gmcu"]
+[ext_resource type="Script" path="res://decode.gd" id="2_87jli"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -8,31 +11,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="menu" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.5
-offset_top = -46.5
-offset_right = 64.5
-offset_bottom = 46.5
+offset_left = -150.5
+offset_top = -75.5
+offset_right = 150.5
+offset_bottom = 75.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="title" type="Label" parent="VBoxContainer"]
+[node name="title" type="Label" parent="menu"]
 layout_mode = 2
+theme_type_variation = &"HeaderLarge"
 text = "Morse Code
  "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="encode" type="Button" parent="VBoxContainer"]
+[node name="encode" type="Button" parent="menu"]
 layout_mode = 2
 text = "Encode"
+script = ExtResource("1_3gmcu")
 
-[node name="decode" type="Button" parent="VBoxContainer"]
+[node name="decode" type="Button" parent="menu"]
 layout_mode = 2
 text = "Decode"
+script = ExtResource("2_87jli")
