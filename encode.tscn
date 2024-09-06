@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bg32fgc4qn66w"]
+[gd_scene load_steps=2 format=3 uid="uid://bg32fgc4qn66w"]
+
+[ext_resource type="Script" path="res://key.gd" id="1_ndguw"]
 
 [node name="encode" type="Control"]
 layout_mode = 3
@@ -7,3 +9,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -75.5
+offset_right = 150.5
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="menu"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "A
+ "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="key" type="Button" parent="menu"]
+layout_mode = 2
+text = " 
+ 
+ 
+ 
+ "
+script = ExtResource("1_ndguw")
+
+[connection signal="button_down" from="menu/key" to="menu/key" method="_on_button_down"]
+[connection signal="button_up" from="menu/key" to="menu/key" method="_on_button_up"]
