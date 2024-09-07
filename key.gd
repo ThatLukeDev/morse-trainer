@@ -43,6 +43,7 @@ func chooserand() -> void:
 	$"../title".text = char(65 + letter) + "\n "
 
 func _ready() -> void:
+	grab_focus()
 	chooserand()
 
 func _process(delta: float) -> void:

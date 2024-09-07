@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcvk5oenjnfwq"]
+[gd_scene load_steps=5 format=3 uid="uid://dcvk5oenjnfwq"]
 
 [ext_resource type="AudioStream" uid="uid://5rsmulpkmqyh" path="res://sine.wav" id="1_cb5px"]
 [ext_resource type="Script" path="res://box.gd" id="1_nhvkc"]
+[ext_resource type="Texture2D" uid="uid://d0q6dlvrwsvq3" path="res://menu.png" id="3_dyfph"]
+[ext_resource type="Script" path="res://home.gd" id="4_jvqjg"]
 
 [node name="decode" type="Control"]
 layout_mode = 3
@@ -41,4 +43,15 @@ script = ExtResource("1_nhvkc")
 [node name="tone" type="AudioStreamPlayer" parent="menu"]
 stream = ExtResource("1_cb5px")
 
+[node name="home" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 91.0
+offset_bottom = 91.0
+icon = ExtResource("3_dyfph")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_jvqjg")
+
 [connection signal="text_changed" from="menu/box" to="menu/box" method="_on_text_changed"]
+[connection signal="pressed" from="home" to="home" method="_on_pressed"]

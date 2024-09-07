@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg32fgc4qn66w"]
+[gd_scene load_steps=5 format=3 uid="uid://bg32fgc4qn66w"]
 
 [ext_resource type="Script" path="res://key.gd" id="1_ndguw"]
 [ext_resource type="AudioStream" uid="uid://5rsmulpkmqyh" path="res://sine.wav" id="2_okwpu"]
+[ext_resource type="Texture2D" uid="uid://d0q6dlvrwsvq3" path="res://menu.png" id="3_fq7ad"]
+[ext_resource type="Script" path="res://home.gd" id="4_cik8m"]
 
 [node name="encode" type="Control"]
 layout_mode = 3
@@ -19,9 +21,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.5
-offset_top = -75.5
+offset_top = -104.0
 offset_right = 150.5
-offset_bottom = 75.5
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -45,5 +47,17 @@ script = ExtResource("1_ndguw")
 [node name="tone" type="AudioStreamPlayer" parent="menu"]
 stream = ExtResource("2_okwpu")
 
+[node name="home" type="Button" parent="."]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 91.0
+offset_bottom = 91.0
+icon = ExtResource("3_fq7ad")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_cik8m")
+
 [connection signal="button_down" from="menu/key" to="menu/key" method="_on_button_down"]
 [connection signal="button_up" from="menu/key" to="menu/key" method="_on_button_up"]
+[connection signal="pressed" from="home" to="home" method="_on_pressed"]

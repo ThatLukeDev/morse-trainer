@@ -44,6 +44,7 @@ func chooserand() -> void:
 	$"../title".text = morses[letter].replace(".", "·").replace("-", "−") + "\n "
 
 func _ready() -> void:
+	grab_focus()
 	chooserand()
 
 func _process(delta: float) -> void:
