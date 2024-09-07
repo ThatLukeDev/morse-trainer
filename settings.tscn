@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7k2ql5m0cf3e"]
+
+[ext_resource type="Texture2D" uid="uid://d0q6dlvrwsvq3" path="res://menu.png" id="1_7mc4d"]
+[ext_resource type="Script" path="res://speedbox.gd" id="1_fqtcq"]
+[ext_resource type="Script" path="res://home.gd" id="2_gf1hn"]
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -45.5
+offset_right = 150.5
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="speedtitle" type="Label" parent="menu"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Speed (wpm)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="speedbox" type="TextEdit" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "20"
+script = ExtResource("1_fqtcq")
+
+[node name="home" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 91.0
+offset_bottom = 91.0
+icon = ExtResource("1_7mc4d")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_gf1hn")
+
+[connection signal="text_changed" from="menu/speedbox" to="menu/speedbox" method="_on_text_changed"]
+[connection signal="pressed" from="home" to="home" method="_on_pressed"]

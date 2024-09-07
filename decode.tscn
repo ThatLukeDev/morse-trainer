@@ -44,6 +44,7 @@ script = ExtResource("1_nhvkc")
 stream = ExtResource("1_cb5px")
 
 [node name="home" type="Button" parent="."]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 91.0

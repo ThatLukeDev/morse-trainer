@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp23jbsoclb7f"]
+[gd_scene load_steps=4 format=3 uid="uid://dp23jbsoclb7f"]
 
 [ext_resource type="Script" path="res://encode.gd" id="1_3gmcu"]
 [ext_resource type="Script" path="res://decode.gd" id="2_87jli"]
+[ext_resource type="Script" path="res://settingsbtn.gd" id="3_gdfgb"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -28,7 +29,7 @@ grow_vertical = 2
 [node name="title" type="Label" parent="menu"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
-text = "Morse Code
+text = "Morse Code Trainer
  "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -42,3 +43,10 @@ script = ExtResource("1_3gmcu")
 layout_mode = 2
 text = "Decode"
 script = ExtResource("2_87jli")
+
+[node name="settings" type="Button" parent="menu"]
+layout_mode = 2
+text = "Settings"
+script = ExtResource("3_gdfgb")
+
+[connection signal="pressed" from="menu/settings" to="menu/settings" method="_on_pressed"]

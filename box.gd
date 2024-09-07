@@ -2,7 +2,7 @@ extends TextEdit
 
 var rng = RandomNumberGenerator.new()
 
-var dividertime: float = 0.2
+var dividertime: float = config.speed
 
 var elapsedtime: float = 0
 var playing: bool = false

@@ -2,12 +2,13 @@ extends Button
 
 var rng = RandomNumberGenerator.new()
 
-var dividertime: float = 0.2
-var cleartime: float = 0.5
+var dividertime: float = config.speed
+var cleartime: float = config.speed
 
 var sincelastTime: float = 0
 var msg: String = ""
 var letter: int = 0
+var buttondown: bool = false
 
 var morses = [
 	".-",
@@ -49,7 +50,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	sincelastTime += delta
 	
-	if sincelastTime > cleartime:
+	if sincelastTime > cleartime and not buttondown:
 		if msg == " " + morses[letter]:
 			chooserand()
 		msg = ""
@@ -60,12 +61,14 @@ func _process(delta: float) -> void:
 		$".".text = "\n\n\n "
 
 func _on_button_down() -> void:
+	buttondown = true
 	if sincelastTime > dividertime:
 		msg += " "
 	sincelastTime = 0
 	$"../tone".play()
 
 func _on_button_up() -> void:
+	buttondown = false
 	if sincelastTime > dividertime:
 		msg += "-"
 	else:
