@@ -41,7 +41,6 @@ var morses = [
 func chooserand() -> void:
 	letter = rng.randi_range(0, 25)
 	$"../title".text = char(65 + letter) + "\n "
-	pass
 
 func _ready() -> void:
 	chooserand()
@@ -63,6 +62,7 @@ func _on_button_down() -> void:
 	if sincelastTime > dividertime:
 		msg += " "
 	sincelastTime = 0
+	$"../tone".play()
 
 func _on_button_up() -> void:
 	if sincelastTime > dividertime:
@@ -70,3 +70,4 @@ func _on_button_up() -> void:
 	else:
 		msg += "."
 	sincelastTime = 0
+	$"../tone".stop()
