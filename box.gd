@@ -39,7 +39,12 @@ var morses = [
 ]
 
 func chooserand() -> void:
-	letter = rng.randi_range(0, 25)
+	var chosen: int
+	while true:
+		chosen = rng.randi_range(0, 25)
+		if letter != chosen:
+			letter = chosen
+			break
 	play = morses[letter]
 	$"../title".text = morses[letter].replace(".", "·").replace("-", "−") + "\n "
 

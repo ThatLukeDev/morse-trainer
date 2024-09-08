@@ -40,7 +40,12 @@ var morses = [
 ]
 
 func chooserand() -> void:
-	letter = rng.randi_range(0, 25)
+	var chosen: int
+	while true:
+		chosen = rng.randi_range(0, 25)
+		if letter != chosen:
+			letter = chosen
+			break
 	$"../title".text = char(65 + letter) + "\n "
 
 func _ready() -> void:
